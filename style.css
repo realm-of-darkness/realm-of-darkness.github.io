@@ -1,0 +1,182 @@
+/* Realm of Darkness — shared theme. The realm is always dark. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0a0c;
+  --bg-2: #141217;
+  --bg-3: #1d1a21;
+  --ink: #e9e2d0;
+  --muted: #a39b8b;
+  --amber: #e0a040;
+  --amber-dim: #9c6d27;
+  --blood: #a3262a;
+  --line: #2c2832;
+  --stone: #8d8a86;
+  --stone-dark: #5e5b58;
+  --stone-ink: #1b1a19;
+  --radius: 10px;
+  --font-display: "UnifrakturMaguntia", "Old English Text MT", serif;
+  --font-body: "EB Garamond", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--bg); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 50% -10%, #2a1f14 0%, transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+a { color: var(--amber); text-underline-offset: 3px; }
+a:hover { color: #ffc56b; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; letter-spacing: .01em; }
+h1 { font-size: clamp(2.3rem, 7vw, 4rem); margin: .2em 0 .3em; }
+h2 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); margin: 1.6em 0 .4em; }
+h3 { font-size: 1.5rem; margin: 0 0 .3em; }
+
+.wrap { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 16px; }
+main { flex: 1; padding-bottom: 3rem; }
+
+/* Header / nav */
+.site-header { border-bottom: 1px solid var(--line); background: rgba(11,10,12,.85); }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1.2rem; padding-top: .7rem; padding-bottom: .7rem; }
+.brand { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; }
+.brand svg { width: 30px; height: 18px; fill: var(--amber); }
+.site-nav { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; }
+.site-nav a { color: var(--muted); text-decoration: none; font-variant: small-caps; letter-spacing: .06em; }
+.site-nav a:hover, .site-nav a[aria-current] { color: var(--amber); }
+
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; padding: 1.4rem 0 2rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; }
+.site-footer a { color: var(--muted); }
+
+.lede { font-size: 1.3rem; color: var(--muted); max-width: 40em; }
+.muted { color: var(--muted); }
+.small { font-size: .95rem; }
+.center { text-align: center; }
+
+/* Buttons & forms */
+.btn, button {
+  font: inherit; font-size: 1.05rem; cursor: pointer;
+  display: inline-block; padding: .55rem 1.1rem; border-radius: var(--radius);
+  border: 1px solid var(--amber-dim); background: #21170c; color: var(--ink);
+  text-decoration: none;
+}
+.btn:hover, button:hover { background: #33230f; color: #fff; }
+.btn.ghost, button.ghost { background: transparent; border-color: var(--line); color: var(--muted); }
+.btn.ghost:hover, button.ghost:hover { color: var(--ink); border-color: var(--muted); }
+label { display: block; margin-bottom: .3rem; color: var(--muted); }
+input[type=text], select {
+  font: inherit; width: 100%; padding: .55rem .7rem; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--bg-2); color: var(--ink);
+}
+.field { margin-bottom: 1rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem .6rem; border: 0; padding: 0; margin: 0 0 1rem; }
+.tags legend { color: var(--muted); margin-bottom: .3rem; padding: 0; }
+.tags label { display: inline-flex; align-items: center; gap: .35rem; margin: 0; padding: .25rem .7rem; border: 1px solid var(--line); border-radius: 99px; color: var(--ink); cursor: pointer; font-size: 1rem; }
+.tags input { accent-color: var(--amber); }
+.row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+
+/* Panels / cards */
+.panel { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.3rem; }
+
+/* Hub doors */
+.doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin: 2rem 0; }
+.door {
+  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1.4rem 1.1rem 1.3rem; text-decoration: none; color: var(--ink);
+  background: linear-gradient(#18141c, #0f0d11); border: 1px solid var(--line);
+  border-radius: 120px 120px var(--radius) var(--radius);
+  transition: border-color .2s, transform .2s;
+}
+.door:hover { border-color: var(--amber-dim); color: var(--ink); transform: translateY(-3px); }
+.door svg { width: 84px; height: 84px; margin: .4rem 0 .6rem; }
+.door h2 { margin: 0 0 .3rem; font-size: 1.8rem; }
+.door p { margin: 0; color: var(--muted); font-size: 1.02rem; }
+
+/* Ornaments */
+.cobweb { position: fixed; top: 0; right: 0; width: 150px; height: 150px; opacity: .22; pointer-events: none; z-index: -1; }
+.candle .flame { transform-origin: 50% 100%; animation: flicker 2.6s infinite ease-in-out; }
+@keyframes flicker {
+  0%, 100% { transform: scale(1, 1) rotate(0); opacity: 1; }
+  25% { transform: scale(.94, 1.06) rotate(-2deg); opacity: .9; }
+  50% { transform: scale(1.04, .95) rotate(2deg); }
+  75% { transform: scale(.97, 1.03) rotate(-1deg); opacity: .95; }
+}
+.divider { display: block; margin: 2rem auto; width: 120px; height: 20px; color: var(--amber-dim); }
+
+/* Crypt game */
+.room { margin-top: 1.5rem; }
+.room-kicker { font-variant: small-caps; letter-spacing: .1em; color: var(--amber); margin: 0; }
+.choices { list-style: none; padding: 0; margin: 1.6rem 0; display: grid; gap: .6rem; }
+.choices a {
+  display: block; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--bg-2); color: var(--ink); text-decoration: none;
+}
+.choices a::before { content: "\2020"; color: var(--amber); margin-right: .6rem; }
+.choices a:hover { border-color: var(--amber-dim); background: var(--bg-3); }
+.secret { color: inherit; text-decoration: none; cursor: inherit; }
+.secret:hover { color: var(--amber); }
+.counter { color: var(--muted); font-size: 1rem; }
+
+/* CSS tombstone (death pages) */
+.stone {
+  margin: 2rem auto 1rem; max-width: 330px; min-height: 290px; padding: 3.2rem 1.4rem 1.8rem; text-align: center;
+  color: var(--stone-ink);
+  background: radial-gradient(circle at 35% 25%, #a9a6a1, var(--stone) 45%, var(--stone-dark));
+  border-radius: 160px 160px 8px 8px;
+  box-shadow: inset 0 -10px 30px rgba(0,0,0,.35), 0 18px 0 -6px #2a2a22, 0 24px 30px rgba(0,0,0,.6);
+}
+.stone .rip { font-family: var(--font-display); font-size: 2.6rem; margin: 0; line-height: 1; }
+.stone .cause { font-size: 1.15rem; margin: .8rem 0 0; font-style: italic; }
+.stone .dates { font-size: .9rem; margin: .7rem 0 0; letter-spacing: .05em; }
+.grass { max-width: 420px; height: 14px; margin: 0 auto 2rem; background: repeating-linear-gradient(90deg, #1f2b17 0 3px, #2d3d20 3px 6px); border-radius: 6px; }
+
+/* Epitaph generator */
+.epitaph-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+@media (min-width: 760px) { .epitaph-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+#stone-svg { width: 100%; max-width: 380px; height: auto; display: block; margin: 0 auto; }
+.share-out { margin-top: .8rem; word-break: break-all; font-size: .95rem; color: var(--muted); }
+
+/* Museum */
+.exhibits { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.exhibit {
+  background: linear-gradient(#1a161e, #121015); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1rem 1.1rem 1.1rem; position: relative;
+}
+.exhibit .no { font-variant: small-caps; letter-spacing: .1em; color: var(--amber); font-size: .95rem; }
+.exhibit h3 { font-size: 1.45rem; margin: .2rem 0 .4rem; }
+.exhibit .meta { font-size: .92rem; color: var(--muted); margin: 0 0 .5rem; }
+.exhibit p { margin: 0; font-size: 1.02rem; }
+.skulls { color: var(--ink); letter-spacing: .1em; }
+.skulls .off { opacity: .2; }
+.exhibit:target { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+.cotd { border-color: var(--amber-dim); }
+.cotd h2 { margin-top: 0; }
+.giftshop { text-align: center; color: var(--muted); margin-top: 3rem; font-style: italic; }
+
+/* Certificate */
+.certificate {
+  margin: 2rem auto; max-width: 620px; padding: 2.2rem 1.6rem; text-align: center;
+  background: #e8dcc0; color: #2a1d10; border-radius: 4px;
+  border: 10px double #6b4c25; box-shadow: 0 20px 50px rgba(0,0,0,.7);
+}
+.certificate h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); color: #4a1010; }
+.certificate .to { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.6rem); margin: .3rem 0; }
+.certificate .curse-name { font-size: 1.4rem; font-weight: 600; margin: .4rem 0; }
+.certificate .seal { display: inline-block; margin-top: 1.2rem; width: 80px; height: 80px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #c0353a, #6d0f12); color: #f3d6b0; line-height: 80px; font-family: var(--font-display); font-size: 1.6rem; transform: rotate(-12deg); }
+.certificate a { color: #6d0f12; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
